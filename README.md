@@ -22,3 +22,35 @@
 ### ◼ Henrique Torrico Silva (Banco de Dados e Back-end) <br>
 #### GitHub: https://github.com/HenriqueTorrico
 #### Email: henriquetorrico12@gmail.com
+
+<br>
+
+# 📜 Manual
+### ◼ Sotfwares para utilização do Sistema
+#### ✔ Visual Studio 2017 ou 2019
+#### ✔ MySQL
+
+<br>
+
+### ◼ Mudanças a serem feitas ao baixar os arquivos
+#### ✔ Certifique-se de ter executado todos os comandos do banco de dados, todos eles são fundamentais para a execução
+#### ✔ Alguns Controladores (Controllers) estão com meu diretorio de arquivos, todos eles deverão ser atualizados com suas informações de senha e nome do database
+
+<br>
+
+### ◼ Lista de Controladores (Controllers) a serem atualizados
+#### ✔ CarrinhoController.cs
+#### ✔ CategoriaController.cs
+#### ✔ ComentarioController.cs
+#### ✔ EstatisticaController.cs
+#### ✔ FornecedorController.cs
+#### ✔ FuncionarioController.cs
+#### ✔ LoginController.cs
+#### ✔ ProdutoController.cs
+#### ✔ UsuarioController.cs
+#### ✔ VendaController.cs
+
+<br>
+
+### ◼ Classe de conexão do banco localizada na pasta Dados
+#### ✔ Conexao.cs
