@@ -10,7 +10,7 @@
 #### ◼ Plataforma: ASP.NET (Entity Framework)<br>
 #### ◼ Arquitetura: MVC <br>
 #### ◼ Banco de Dados: MySQL<br>
-#### Linguagens: HTML, CSS, JS e C#
+#### ◼ Linguagens: HTML, CSS, JS e C#
 
 <br>
 
