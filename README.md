@@ -6,8 +6,12 @@
 
 <br>
 
-# Imagens
-
+# 📍 Algumas Imagens
+![Login-loja](https://user-images.githubusercontent.com/64800211/124823225-56640680-df47-11eb-8966-9dd55b530915.png)
+![perfil](https://user-images.githubusercontent.com/64800211/124823226-56fc9d00-df47-11eb-9fa3-651fb753d9ac.png)
+![list-Categoria](https://user-images.githubusercontent.com/64800211/124823223-56640680-df47-11eb-9381-e75606dd81d9.png)
+![histórico de compras](https://user-images.githubusercontent.com/64800211/124823220-549a4300-df47-11eb-8a03-4412c928b7c5.png)
+![itens do histórico de compras](https://user-images.githubusercontent.com/64800211/124823222-55cb7000-df47-11eb-9931-458347025bde.png)
 
 # 💻 Web
 #### ◼ Plataforma: ASP.NET (Entity Framework)<br>
