@@ -1,0 +1,239 @@
+﻿@model PagedList.IPagedList<EcommerceMusical.Web.Models.modelProduto>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link href="~/Content/categorias.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body>
+    <main>
+        <section class="bannerAudioTec">
+            <div class="banner">
+                <img src="~/Imagens/banner.png" />
+            </div>
+        </section>
+
+        <section class="Produtos-AudioTec">
+            <div class="container">
+                <div class="grid-produtos">
+                    <div class="filtros">
+                        <div class="title-AudioTec">
+                            <h1>Filtrar por</h1>
+                        </div>
+
+                        <div class="filtros-categorias-desktop">
+                            @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <ul class="filtro-acessorios">
+                                    <li class="filtro-title"><h2>Ordenar por</h2></li>
+                                    <li class="filtro-item">
+                                        <input id="Maior" type="radio" name="btnFiltro" value="maiorPreco">
+                                        <label for="Maior">Maior preço</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="Menor" type="radio" name="btnFiltro" value="menorPreco">
+                                        <label for="Menor">Menor preço</label>
+                                    </li>
+                                    <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                </ul>
+                            }
+
+                            @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <ul class="filtro-instrumento">
+                                    <li class="filtro-title"><h2>Instrumento</h2></li>
+                                    <li class="filtro-item">
+                                        <input id="instDestaque" type="radio" name="btnFiltro" value="destaques" />
+                                        <label for="instDestaque">Destaques</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="instLancamento" type="radio" name="btnFiltro" value="lancamento" />
+                                        <label for="instLancamento">Lançamentos</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="instOferta" type="radio" name="btnFiltro" value="ofertas" />
+                                        <label for="instOferta">Ofertas</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="instPremium" type="radio" name="btnFiltro" value="premium" />
+                                        <label for="instPremium">Premium</label>
+                                    </li>
+                                    <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                </ul>
+                            }
+
+                            @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <ul class="filtro-preco">
+                                    <li class="filtro-title"><h2>Preços</h2></li>
+                                    <li class="filtro-item">
+                                        <input id="preco1" type="radio" value="filtro1" name="btnFiltro">
+                                        <label for="preco1">R$ 0,00 a R$ 1.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="preco2" type="radio" value="filtro2" name="btnFiltro">
+                                        <label for="preco2">R$ 1.000,00 a R$ 5.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="preco3" type="radio" value="filtro3" name="btnFiltro">
+                                        <label for="preco3">R$ 5.000,00 a R$ 10.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="preco4" type="radio" value="filtro4" name="btnFiltro">
+                                        <label for="preco4">R$ 10.000,00 a R$ 15.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="preco5" type="radio" value="filtro5" name="btnFiltro">
+                                        <label for="preco5">R$ 15.000,00 a R$ 20.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="preco6" type="radio" value="filtro6" name="btnFiltro">
+                                        <label for="preco6">R$ 20.000,00 a R$ 30.000,00</label>
+                                    </li>
+                                    <li class="filtro-item">
+                                        <input id="acima" type="radio" value="filtro7" name="btnFiltro">
+                                        <label for="acima">Acima R$ 30.000,00</label>
+                                    </li>
+                                    <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                </ul>
+                            }
+                        </div>
+
+                        <div id="filtrar-mobile" class="filtros-categorias-mobile">
+                            <div class="btn-menu-filtrar">
+                                <button class="btn-filtrar-mobile-open">Filtrar</button>
+                            </div>
+
+                            <div class="filtros-mobile">
+                                <div class="btn-menu-filtrar-close">
+                                    <button class="btn-filtrar-mobile-close">Fechar</button>
+                                </div>
+
+                                @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <ul class="filtro-acessorios">
+                                        <li class="filtro-title-mobile"><h2>Ordenar por</h2></li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="maior-mobile" type="radio" name="btnFiltro" value="maiorPreco">
+                                            <label for="maior-mobile">Maior preço</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="menor-mobile" type="radio" name="btnFiltro" value="maiorPreco">
+                                            <label for="menor-mobile">Menor preço</label>
+                                        </li>
+                                        <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                    </ul>
+                                }
+
+                                @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <ul class="filtro-instrumento">
+                                        <li class="filtro-title-mobile"><h2>Instrumentos</h2></li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="instDestaque-mobile" type="radio" name="btnFiltro" value="destaques">
+                                            <label for="instDestaque-mobile">Destaques</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="instLancamento-mobile" type="radio" name="btnFiltro" value="lancamentos">
+                                            <label for="instLancamento-mobile">Lançamentos</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="instOferta-mobile" type="radio" name="btnFiltro" value="ofertas">
+                                            <label for="instOferta-mobile">Ofertas</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="instPremium-mobile" type="radio" name="btnFiltro" value="premium">
+                                            <label for="instPremium-mobile">Premium</label>
+                                        </li>
+                                        <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                    </ul>
+                                }
+
+                                @using (Html.BeginForm("ProdutoAudioTecnologia", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <ul class="filtro-preco-mobile">
+                                        <li class="filtro-title-mobile"><h2>Preços</h2></li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile1" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile1">R$ 0,00 a R$ 500,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile2" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile2">R$ 1.000,00 a R$ 5.000,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile3" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile3">R$ 5.000,00 a R$ 10.000,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile4" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile4">R$ 10.000,00 a R$ 15.000,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile5" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile5">R$ 15.000,00 a R$ 20.000,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="preco-mobile6" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="preco-mobile6">R$ 20.000,00 a R$ 30.000,00</label>
+                                        </li>
+                                        <li class="filtro-item-mobile">
+                                            <input id="acima-mobile6" type="radio" value="filtro1" name="btnFiltro">
+                                            <label for="acima-mobile6">Acima de R$ 30.000,00</label>
+                                        </li>
+                                        <li><input type="submit" value="Filtrar" class="btn-filtrar"></li>
+                                    </ul>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="produtos">
+                        @foreach (var item in Model)
+                        {
+                            <div class="produto-item">
+                                <div class="imgProd">
+                                    <a href="~/Produto/detalhesProduto/@item.cd_produto">
+                                        <img src="@item.img_produto" alt="">
+                                    </a>
+                                </div>
+                                <div class="infosProd">
+                                    <div class="nomeProd">
+                                        <h3>@item.nm_produto</h3>
+                                    </div>
+                                    <div class="precoProd">
+                                        <h3>Por <span>@item.vl_produto</span></h3>
+                                    </div>
+                                    <div class="carrinho">
+                                        <div class="btnCarrinho">
+                                            <a href="~/Produto/detalhesProduto/@item.cd_produto"><button type="submit">DETALHES</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+                <div class="paginacao">
+                    Página @Model.PageNumber de @Model.PageCount
+
+                    @Html.PagedListPager(Model, page => Url.Action("ProdutoAudioTecnologia", new { pagina = page }))
+                </div>
+            </div>
+        </section>       
+    </main>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/categorias.js"></script>
+</body>
+</html>

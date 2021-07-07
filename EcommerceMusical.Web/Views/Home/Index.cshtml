@@ -1,0 +1,277 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelProduto>
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<head>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick-theme.css" />
+    <link href="~/Content/HomePage.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
+    <script src="~/Scripts/HomePage.js"></script>
+</head>
+<main>
+    <section class="carousel-home">
+        <div class="carousel">
+            <img src="~/Imagens/slider1.png" alt="">
+            <img src="~/Imagens/slider2.png" alt="">
+        </div>
+
+        <div class="setas-navegacao">
+            <div id="arrow-prev">
+                <img src="~/Imagens/setaE.svg" alt="">
+            </div>
+            <div id="arrow-next">
+                <img src="~/Imagens/setaD.svg" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="grids-homepage">
+        <div class="container">
+            <div class="categorias-homepage">
+                <div class="lancamentos">
+                    <a href="#prodLancamentos">
+                        <img src="~/Imagens/grid-lançamento.png" />
+                    </a>
+                </div>
+                <div class="destaques">
+                    <a href="#prodDestaques">
+                        <img src="~/Imagens/grid-destaque.png" />
+                    </a>
+                </div>
+                <div class="premium">
+                    <a href="#prodPremiums">
+                        <img src="~/Imagens/grid-premium.png" />
+                    </a>
+                </div>
+                <div class="ofertas">
+                    <a href="#prodOfertas">
+                        <img src="~/Imagens/grid-ofertas.png" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="prodDestaques" class="prodDestaques">
+        <div class="container">
+            <div class="active-prod">
+                <h2 class="title-homePage">Destaques</h2>
+                <div class="setas-prod">
+                    <div id="arrow-prev-destaque">
+                        <img src="~/Imagens/setaE.svg" />
+                    </div>
+                    <div id="arrow-next-destaque">
+                        <img src="~/Imagens/setaD.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="prodDesta">
+                @foreach (var itemDestaque in ViewBag.destaques)
+                {
+                    <div class="produto">
+                        <div class="imgProd">
+                            <a href="~/Produto/detalhesProduto/@itemDestaque.cd_produto">
+                                <img src="@itemDestaque.img_produto" alt="">
+                            </a>
+                        </div>
+                        <div class="infosProd">
+                            <div class="nomeProd">
+                                <h3>@itemDestaque.nm_produto</h3>
+                            </div>
+                            <div class="precoProd">
+                                <h3>Por <span>@itemDestaque.vl_produto</span></h3>
+                            </div>
+                            <div class="carrinho">
+                                <div class="btnCarrinho">
+                                    <a href="~/Produto/detalhesProduto/@itemDestaque.cd_produto"><button type="submit">DETALHES</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="prodOfertas" class="prodOfertas">
+        <div class="container">
+            <div class="active-prod">
+                <h2 class="title-homePage">Ofertas</h2>
+                <div class="setas-prod">
+                    <div id="arrow-prev-oferta">
+                        <img src="~/Imagens/setaE.svg" />
+                    </div>
+                    <div id="arrow-next-oferta">
+                        <img src="~/Imagens/setaD.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="prodOferta">
+                @foreach (var itemOferta in ViewBag.ofertas)
+                {
+                    <div class="produto-oferta">
+                        <div class="imgProd">
+                            <div class="oferta">
+                                <p>15% OFF</p>
+                            </div>
+                            <a href="~/Produto/detalhesProduto/@itemOferta.cd_produto">
+                                <img src="@itemOferta.img_produto" />
+                            </a>
+                        </div>
+                        <div class="infosProd">
+                            <div class="nomeProd">
+                                <h3>@itemOferta.nm_produto</h3>
+                            </div>
+                            <div class="precoProd-oferta">
+                                <p>De R$ 4.550,00</p>
+                                <h3>Por <span>@itemOferta.vl_produto</span></h3>
+                            </div>
+                            <div class="carrinho">
+                                <div class="btnCarrinho">
+                                    <a href="~/Produto/detalhesProduto/@itemOferta.cd_produto"><button type="submit">DETALHES</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section id="prodLancamentos" class="prodLançamentos">
+        <div class="container">
+            <div class="active-prod">
+                <h2 class="title-homePage">Lançamentos</h2>
+                <div class="setas-prod">
+                    <div id="arrow-prev-lancamento">
+                        <img src="~/Imagens/setaE.svg" />
+                    </div>
+                    <div id="arrow-next-lancamento">
+                        <img src="~/Imagens/setaD.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="prodLancamento">
+                @foreach (var itemLancamento in ViewBag.lancamento)
+                {
+                    <div class="produto">
+                        <div class="imgProd">
+                            <a href="~/Produto/detalhesProduto/@itemLancamento.cd_produto">
+                                <img src="@itemLancamento.img_produto" />
+                            </a>
+                        </div>
+                        <div class="infosProd">
+                            <div class="nomeProd">
+                                <h3>@itemLancamento.nm_produto</h3>
+                            </div>
+                            <div class="precoProd">
+                                <h3>Por <span>@itemLancamento.vl_produto</span></h3>
+                            </div>
+                            <div class="carrinho">
+                                <div class="btnCarrinho">
+                                    <a href="~/Produto/detalhesProduto/@itemLancamento.cd_produto"><button type="submit">DETALHES</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </section>
+
+    <section id="prodPremiums" class="prodPremiums">
+        <div class="container">
+            <div class="active-prod">
+                <h2 class="title-homePage">Premium</h2>
+                <div class="setas-prod">
+                    <div id="arrow-prev-premium">
+                        <img src="~/Imagens/setaE.svg" />
+                    </div>
+                    <div id="arrow-next-premium">
+                        <img src="~/Imagens/setaD.svg" />
+                    </div>
+                </div>
+            </div>
+            <div class="prodPremium">
+                @foreach (var itemPremium in ViewBag.premium)
+                {
+                    <div class="produto">
+                        <div class="imgProd">
+                            <a href="~/Produto/detalhesProduto/@itemPremium.cd_produto">
+                                <img src="@itemPremium.img_produto" />
+                            </a>
+                        </div>
+                        <div class="infosProd">
+                            <div class="nomeProd">
+                                <h3>@itemPremium.nm_produto</h3>
+                            </div>
+                            <div class="precoProd">
+                                <h3>Por <span>@itemPremium.vl_produto</span></h3>
+                            </div>
+                            <div class="carrinho">
+                                <div class="btnCarrinho">
+                                    <a href="~/Produto/detalhesProduto/@itemPremium.cd_produto"><button type="submit">DETALHES</button></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </section>
+
+    <section class="Comments">
+        <div class="feedbacks">
+            <div class="titulo">
+                <h2>Feedback dos nossos clientes!</h2>
+            </div>
+            <div class="comentarios">
+                <div class="area-comentario">
+                    <div class="header">
+                        <div class="aspas">
+                            <img src="~/Imagens/aspas.svg" />
+                        </div>
+                    </div>
+
+                    <div class="comentarios-clientes">
+                        @foreach (var itemComentario in ViewBag.comentarios)
+                        {
+                            <div class="conteudo">
+                                <div class="user">
+                                    <div class="image-user">
+                                        <img src="@itemComentario.img_usuario" alt="">
+                                    </div>
+                                    <div class="name-user">
+                                        <p>@itemComentario.nm_usuario</p>
+                                    </div>
+                                </div>
+                                <div class="comentario">
+                                    <p>@itemComentario.ds_comentario</p>
+                                </div>
+                                <div class="data-comentario">
+                                    <p>@itemComentario.dt_comentario</p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+                    <div class="footer">
+                        <div id="leftArrow" class="leftArrow">
+                            <img src="~/Imagens/LeftArrow.svg" />
+                        </div>
+                        <div id="rightArrow" class="rightArrow">
+                            <img src="~/Imagens/RightArrow.svg" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

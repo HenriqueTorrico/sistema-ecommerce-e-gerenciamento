@@ -1,0 +1,54 @@
+﻿* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.compra-finalizada {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.icone i {
+    height: 150px;
+    font-size: 150px;
+    color: #069B27;
+}
+
+.compra-finalizada h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    color: #413E3E;
+}
+
+.btn-voltar {
+    width: 250px;
+    height: 50px;
+    margin-top: 1rem;
+}
+
+    .btn-voltar a button {
+        cursor: pointer;
+        outline: none;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        background: #C35C6E;
+    }
+
+        .btn-voltar a button:hover {
+            background: #F6B100;
+        }

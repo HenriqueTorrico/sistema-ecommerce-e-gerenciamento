@@ -1,0 +1,112 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #fbfbfb;
+}
+
+.card-perfil {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+}
+
+    .card-perfil h1 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 42px;
+        color: #000000;
+        text-align: center;
+    }
+
+.dados-perfil {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.title-perfil {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.image-user-perfil {
+    min-width: 200px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+    .image-user-perfil img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+.left-infos .realizar-comentario {
+    margin-top: 2rem;
+}
+
+.right-infos .dados-login,
+.right-infos .dados-pessoais {
+    margin-bottom: 2rem;
+}
+
+.right-infos .btn-editar input {
+    padding: 10px 20px;
+    width: 100%;
+    background: #c35c6e;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+    .right-infos .btn-editar input:hover {
+        background-color: #f6b100;
+    }
+
+@media screen and (max-width: 980px) {
+    .image-user-perfil {
+        min-width: 170px;
+        width: 170px;
+        height: 170px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .dados-perfil {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .right-infos .btn-editar {
+        margin: 0;
+    }
+
+        .right-infos .btn-editar input {
+            margin-left: 0;
+        }
+}

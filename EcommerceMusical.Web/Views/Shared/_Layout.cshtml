@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/menu-footer-menu.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav class="navebar">
+            <div class="menu-desktop">
+                <div class="header-1">
+                    <div class="contaner">
+                        <div class="conteudo-header1">
+                            <p>Os melhores produtos você só encontra aqui</p>
+                            <div class="redes-social">
+                                <a href=""><i class="fas fa-envelope"></i></a>
+                                <a href=""><i class="fab fa-facebook-square"></i></a>
+                                <a href=""><i class="fab fa-instagram-square"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-2">
+                    <div class="contaner">
+                        <div class="conteudo-header2">
+                            <div class="logo">
+                                <a href="~/Home/Index"><img src="~/Imagens/logo.svg" /></a>
+                            </div>
+                            <form action="/Produto/buscarProduto" enctype="multipart/form-data" method="post">
+                                <div class="input-search">
+                                    <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Informe um produto">
+                                    <button class="submit-lente" type="submit" value="Buscar">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class="itens-menu itens-user">
+                                <a href="~/Home/Contato" class="faq">FAQ</a>
+                                @if ((Session["usuarioLogado"] == null) || (Session["senhaLogado"] == null))
+                                {
+                                    <a href="~/Login/Login" class="login">Entrar <i class="fas fa-user"></i></a>
+                                }
+                                else
+                                {
+                                    if (Session["tipoGerente"] == null)
+                                    {
+                                        <a href="~/Login/Detalhes"><i class="fas fa-user"></i> Conta</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="~/Home/Painel_de_Controle"><i class="fas fa-user"></i> Admin</a>
+                                    }
+                                }
+                                <a href="~/Carrinho/Carrinho" class="car"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="header-3">
+                    <div class="contaner">
+                        <div class="conteudo-header3">
+                            <ul class="menu-list">
+                                <li><a href="~/Home/Index">Início</a></li>
+                                <li><a href="~/Produto/ProdutoAudioTecnologia">Áudio e tecnologia</a></li>
+                                <li><a href="~/Produto/ProdutoInstrumentoCorda">Instrumentos de corda</a></li>
+                                <li><a href="~/Produto/ProdutoBateriaPercussao">Bateria e percussão</a></li>
+                                <li><a href="~/Produto/ProdutoInstrumentoTeclas">Instrumentos de teclas</a></li>
+                                <li><a href="~/Produto/ProdutoArcoSopro">Arco e sopro</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-mobile">
+                <div class="header">
+                    <div class="contaner">
+                        <div class="conteudo-menu-mobile">
+                            <div class="btn-menu">
+                                <button class="btnMenu btnMenu_open"><i class="fas fa-bars"></i></button>
+                            </div>
+
+                            <a href="~/Home/Index"><img src="~/Imagens/logo.svg" /></a>
+
+                            <a href="~/Carrinho/Carrinho" class="btnMenu_shop"><i class="fas fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div id="menu" class="menu">
+                    <div class="header-menu">
+                        <div class="itens-header-menu">
+                            <div class="login">
+                                @if ((Session["usuarioLogado"] == null) || (Session["senhaLogado"] == null))
+                                {
+                                    <a href="~/Login/Login"><i class="fas fa-user"></i> Entrar</a>
+                                }
+                                else
+                                {
+                                    <a href="~/Login/Detalhes"><i class="fas fa-user"></i> Conta</a>
+                                }
+                            </div>
+                            <div class="btn-menu-close">
+                                <button class="btnMenu btnMenu_close"><i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="faq">
+                            <a href="~/Home/Contato">FAQ</a>
+                        </div>
+                        <form action="/Produto/buscarProduto" enctype="multipart/form-data" method="post">
+                            <div class="input-search-mobile">
+                                <input type="text" name="nomeProduto" id="nomeProduto" placeholder="Informe um produto">
+                                <button class="submit-lente-mobile" type="submit" value="Buscar">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="menu-list">
+                        <ul>
+                            <li class="menu-item"><a href="~/Home/Index" class="menu-item-action">Início</a></li>
+                            <li class="menu-item"><a href="~/Produto/ProdutoAudioTecnologia" class="menu-item-action">Áudio e Tecnologia</a></li>
+                            <li class="menu-item"><a href="~/Produto/ProdutoInstrumentoCorda" class="menu-item-action">Instrumentos de Corda</a></li>
+                            <li class="menu-item"><a href="~/Produto/ProdutoBateriaPercussao" class="menu-item-action">Bateria e Percussão</a></li>
+                            <li class="menu-item"><a href="~/Produto/ProdutoInstrumentoTeclas" class="menu-item-action">Instrumentos de Teclas</a></li>
+                            <li class="menu-item"><a href="~/Produto/ProdutoArcoSopro" class="menu-item-action">Arco e sopro</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-menu">
+                        <div class="redes-sociais">
+                            <a href=""><i class="fas fa-envelope"></i></a>
+                            <a href=""><i class="fab fa-facebook-f"></i></a>
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main">
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer>
+        <div class="contaner">
+            <div class="footer-box">
+                <div class="footer-itens-box box1">
+                    <div class="logo">
+                        <img src="~/Imagens/logo.svg" />
+                    </div>
+                    <div class="text">
+                        <p>A música é essencial para todos, sabendo como ela pode mudar a vida de alguém, queremos que todos possam ter acesso. Serviço de qualidade e transparência sempre foi o nosso foco para os clientes de nossa loja. </p>
+                    </div>
+                    <div class="redes-sociais">
+                        <div class="instagram">
+                            <img src="image/instagram.svg" alt="">
+                        </div>
+                        <div class="email">
+                            <img src="image/email.svg" alt="">
+                        </div>
+                        <div class="facebook">
+                            <img src="image/facebook.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-itens-box box2">
+                    <h2 class="title">Links de navegação</h2>
+                    <ul class="menu-footer">
+                        <li><a href="~/Produto/ProdutoAudioTecnologia">Áudio e Tecnologia</a></li>
+                        <li><a href="~/Produto/ProdutoInstrumentoCorda">Instrumentos de Corda</a></li>
+                        <li><a href="~/Produto/ProdutoBateriaPercussao">Bateria e Percussão</a></li>
+                        <li><a href="~/Produto/ProdutoInstrumentoTeclas">Instrumentos de Teclas</a></li>
+                        <li><a href="~/Produto/ProdutoArcoSopro">Arco e Sopro</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-itens-box box3">
+                    <h2 class="title">Contato</h2>
+                    <ul class="contato">
+                        <li><img src="image/email-icon.svg" alt="">highkeymusictcc@gmail.com</li>
+                        <li><img src="image/phone-icon.svg" alt="">+55 (11) 98765 43210</li>
+                        <li><img src="image/location-icon.svg" alt="">R. Guaipá, 678 - Vila Leopoldina, São Paulo - SP, 05089-000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subfooter">
+                <h3 class="copyright">© 2021 High Key Music. Todos os direitos reservados</h3>
+            </div>
+        </div>
+    </footer>
+    <script src="~/Scripts/menu-footer.js"></script>
+</body>
+</html>

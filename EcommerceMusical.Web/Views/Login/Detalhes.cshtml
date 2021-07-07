@@ -1,0 +1,120 @@
+﻿@model EcommerceMusical.Web.Models.modelUsuario
+@{
+    ViewBag.Title = "Detalhes do Usuario";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/perfil-usuario.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card-perfil">
+            <h1>Meu Perfil</h1>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.cd_usuario)
+                <div class="dados-perfil">
+                    <div class="left-infos">
+                        <div class="user">
+                            <div class="image-user-perfil">
+                                <img src="@ViewBag.img_usuario" alt="">
+                            </div>
+                            <p class="name-user-perfil">@ViewBag.nm_usuario</p>
+                        </div>
+                        <div class="historico-compras">
+                            <p>Veja seu histórico de compras.</p>
+                            <div class="btn-historicoCompras">
+                                <a href="/Login/Historico"><input type="button" value="Histórico de Compras"></a>
+                            </div>
+                        </div>
+                        <div class="realizar-comentario">
+                            <p>Conte-nos sua experiência em nossa loja com um comentário!</p>
+                            <div class="btn-comentario">
+                                <a href="/Comentario/cadastrarComentario"><input type="button" value="Realizar Comentário"></a>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="realizar-comentario">
+                            <div class="btn-comentario">
+                                <a href="/Login/Logout"><input type="button" value="Sair"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border"></div>
+                    <div class="right-infos">
+                        <div class="dados-login">
+                            <h2 class="title-perfil">Dados do Login</h2>
+                            <div class="row">
+                                <div class="form-group col-lg-8 col-md-12">
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control" value="@ViewBag.eml_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-8 col-md-12">
+                                    <label for="">Senha</label>
+                                    <input type="password" class="form-control" value="@ViewBag.sh_usuario" disabled />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dados-pessoais">
+                            <h2 class="title-perfil">Informações Pessoais</h2>
+                            <div class="row">
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label for="">CPF</label>
+                                    <input type="text" class="form-control" value="@ViewBag.cpf_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label for="">Celular</label>
+                                    <input type="text" class="form-control" value="@ViewBag.cel_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label for="">Gênero</label>
+                                    <input type="text" class="form-control" value="@ViewBag.nm_genero" disabled />
+                                </div>
+                                <div class="form-group col-lg-6 col-md-6 col-sm-12">
+                                    <label for="">Cidade</label>
+                                    <input type="text" class="form-control" value="@ViewBag.cid_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-8 col-md-8 col-sm-12">
+                                    <label for="">Endereço</label>
+                                    <input type="text" class="form-control" value="@ViewBag.log_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-4 col-md-4 col-sm-12">
+                                    <label for="">CEP</label>
+                                    <input type="text" class="form-control" value="@ViewBag.cep_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-8 col-md-9 col-sm-12">
+                                    <label for="">Bairro</label>
+                                    <input type="text" class="form-control" value="@ViewBag.bar_usuario" disabled />
+                                </div>
+                                <div class="form-group col-lg-4 col-md-3 col-sm-12">
+                                    <label for="">UF</label>
+                                    <input type="text" class="form-control" value="@ViewBag.uf_usuario" disabled />
+                                </div>
+
+                                <div class="btn-editar col-lg-4 col-md- 6 col-sm-12">
+                                    <a href="/Login/atualizarUsuario"><input type="button" value="Editar Perfil"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

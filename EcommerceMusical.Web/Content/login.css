@@ -1,0 +1,245 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.wi-100 {
+    width: 100%;
+}
+
+.header-login {
+    background-color: #f6b100;
+    width: 100%;
+    height: 315px;
+    padding-top: 1rem;
+}
+
+    .header-login .header-actions-login {
+        display: flex;
+        justify-content: space-between;
+        align-self: center;
+    }
+
+        .header-login .header-actions-login .logo-login {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 22px;
+            line-height: 28px;
+            color: #ffffff;
+        }
+
+    .header-login .text-header-login {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        width: 350px;
+        line-height: 42px;
+        text-align: start;
+        color: #ffffff;
+        padding-top: 2rem;
+        margin: 0 auto;
+    }
+
+.card-forms-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: -60px auto;
+    padding: 40px !important;
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.form-login {
+    width: 100%;
+    height: 100%;
+}
+
+.input-login {
+    position: relative;
+    height: 55px;
+    margin-bottom: 3rem;
+    padding: 0 !important;
+    display: inline-block;
+}
+
+    .input-login input,
+    .input-login select {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 16px;
+        color: #a49e9e;
+        padding: 0 20px;
+        background: #fafafc;
+        border: 1px solid #f3f3f3;
+        border-radius: 5px;
+        outline: none;
+    }
+
+    .input-login label {
+        position: absolute;
+        transform: translateY(-20px);
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 16px;
+        color: #a49e9e;
+        pointer-events: none;
+        margin-bottom: 0 !important;
+    }
+
+.linha {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    width: 100%;
+}
+
+    .linha::before {
+        position: absolute;
+        content: "";
+        height: 100%;
+        width: 100%;
+        background: #4158d0;
+        transform: scaleX(0);
+    }
+
+.input-login input:focus ~ .linha::before,
+.input-login input:valid ~ .linha::before {
+    transform: scaleX(1);
+}
+
+.btn-entrar-login {
+    height: 55px;
+    margin-bottom: 2rem;
+}
+
+    .btn-entrar-login button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+        background: #f8b200;
+        color: #fff;
+        cursor: pointer;
+    }
+
+        .btn-entrar-login button:hover {
+            background: #ffb700;
+        }
+
+.text-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #a59e9e;
+    margin-bottom: 2rem;
+}
+
+    .text-login::before {
+        content: "";
+        display: inline-block;
+        height: 2px;
+        width: 45%;
+        margin-right: 7px;
+        background: #dfd5d5;
+    }
+
+    .text-login::after {
+        content: "";
+        display: inline-block;
+        height: 2px;
+        width: 45%;
+        margin-left: 7px;
+        background: #dfd5d5;
+    }
+
+.btn-redeSocial-login {
+    height: 55px;
+    margin-bottom: 1rem;
+}
+
+    .btn-redeSocial-login button {
+        width: 100%;
+        height: 100%;
+        border: 1px solid #a8a1a1;
+        border-radius: 5px;
+        outline: none;
+        background: #ffffff;
+        color: rgb(65, 60, 60);
+        cursor: pointer;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        color: #574e4e;
+    }
+
+        .btn-redeSocial-login button span {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 16px;
+            color: #000000;
+        }
+
+.btn-google button:hover > span {
+    color: #fa3e3e;
+}
+
+.btn-facebook button:hover > span {
+    color: #5fa8d3;
+}
+
+.btn-cadastro-login p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    color: #4b4848;
+}
+
+    .btn-cadastro-login p a {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 16px;
+        text-decoration: none;
+        color: #58b9ff;
+    }
+
+        .btn-cadastro-login p a:hover {
+            color: #2ba4fa;
+        }
+
+@media screen and (max-width: 500px) {
+    .card-forms-login {
+        padding: 25px !important;
+    }
+
+    .header-login .text-header-login {
+        font-size: 30px;
+        width: 330px;
+    }
+
+    .header-login .header-actions-login .logo-login {
+        font-size: 18px;
+    }
+}

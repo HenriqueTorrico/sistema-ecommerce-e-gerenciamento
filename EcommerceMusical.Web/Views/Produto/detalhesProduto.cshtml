@@ -1,0 +1,105 @@
+﻿@model EcommerceMusical.Web.Models.modelProduto
+@{
+    ViewBag.Title = "Detalhes do Produto";
+    ViewBag.Imagem = Model.img_produto;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/detalhes-produto.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="detalhe-produto">
+        <div class="container">
+            <div class="produto">
+                <div class="image-prod">
+                    <img src="@ViewBag.Imagem" alt="">
+                </div>
+                <div class="infos-prod">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.cd_produto)
+                        <div class="name-prod">
+                            <h2>@Html.DisplayFor(model => model.nm_produto)</h2>
+                        </div>
+                        <br />
+                        <div class="price-prod">
+                            <h3>Por <span>R$ @Html.DisplayFor(model => model.vl_produto)</span></h3>
+                        </div>
+                        <br />
+                        <div class="description-prod">
+                            <p>@Html.DisplayFor(model => model.ds_produto)</p>
+                        </div>
+                        <br />
+                        <div class="MCS-prod">
+                            <div class="marca-prod">
+                                <h5><span>Marca:</span> @Html.DisplayFor(model => model.mar_produto)</h5>
+                            </div>
+                            <div class="categoria-prod">
+                                <h5><span>Categoria:</span> @Html.DisplayFor(model => model.nm_categoria)</h5>
+                            </div>
+                            <div class="subcategoria-prod">
+                                <h5><span>Subcategoria:</span> Destaques</h5>
+                            </div>
+                        </div>
+                    }
+                    <br />
+                    <br />
+                    @using (Html.BeginForm("AdicionarCarrinho", "Carrinho", FormMethod.Post))
+                    {
+                        <div class="btn-addCar">
+                            <input type="hidden" name="id" value=@Model.cd_produto>
+                            <input type="hidden" name="pre" value=@Model.vl_produto>
+                            <input type="hidden" name="quantidade" value="1">
+                            <button type="submit"><a>ADICIONAR NO CARRINHO</a><i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+    @using (Html.BeginForm("detalhesProduto", "Produto", FormMethod.Post))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.cd_produto)
+        <div class="infos-produto">
+            <div class="container">
+                <nav>
+                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-descricao-tab" data-toggle="tab" href="#nav-descricao" role="tab" aria-controls="nav-descricao" aria-selected="true">DESCRIÇÃO</a>
+                        <a class="nav-item nav-link" id="nav-infos-tab" data-toggle="tab" href="#nav-infos" role="tab" aria-controls="nav-infos" aria-selected="false">INFORMAÇÕES ADICIONAIS</a>
+                    </div>
+                </nav>
+                <div class="informacoes tab-content" id="nav-tabContent">
+                    <div class="text-descricao tab-pane fade show active" id="nav-descricao" role="tabpanel" aria-labelledby="nav-descricao-tab">
+                        <p>
+                            @Html.DisplayFor(model => model.ds_produto)
+                        </p>
+                    </div>
+                    <div class="text-infos tab-pane fade" id="nav-infos" role="tabpanel" aria-labelledby="nav-infos-tab">
+                        <p style="white-space: pre-line">
+                            @Html.DisplayFor(model => model.car_produto)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

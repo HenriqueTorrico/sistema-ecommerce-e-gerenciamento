@@ -1,0 +1,164 @@
+﻿@model EcommerceMusical.Web.Models.modelFornecedor
+@{
+    ViewBag.Title = "Editar Fornecedor";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/cadastro-fornecedor.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-cadastro">
+        <div class="header-cadastro">
+            <h1 class="text-header-cadastro">Atualizar o dados do Fornecedor</h1>
+        </div>
+        <div class="container">
+            <div class="card-forms-cadastro col-lg-8 col-md-12 col-sm-12">
+                @using (Html.BeginForm("atualizarFornecedor", "Fornecedor", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(model => model.cd_fornecedor)
+                    <div class="form-cadastro">
+                        <div class="inputs">
+                            <div class="input-cadastro wi-100">
+                                <label for="">Nome Completo</label>
+                                @Html.EditorFor(m => m.nm_fornecedor, new { htmlAttributes = new { @class = "input", placeholder = "Ex: Mercado Livre", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="dois-input">
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Telefone</label>
+                                    @Html.EditorFor(m => m.tel_fornecedor, new { htmlAttributes = new { @class = "input", id = "telefone", placeholder = "(__) ____-____", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">CNPJ</label>
+                                    @Html.EditorFor(m => m.cnpj_fornecedor, new { htmlAttributes = new { @class = "input", id = "cnpj", placeholder = "__.___.___/____-__", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">CEP</label>
+                                    @Html.EditorFor(m => m.cep_fornecedor, new { htmlAttributes = new { @class = "input", id = "cep", onblur = "pesquisacep(this.value);", placeholder = "_____-___", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Bairro</label>
+                                    @Html.EditorFor(m => m.bar_fornecedor, new { htmlAttributes = new { @class = "input", id = "bairro", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Endereço</label>
+                                @Html.EditorFor(m => m.log_fornecedor, new { htmlAttributes = new { @class = "input", id = "rua", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="dois-input">
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Cidade</label>
+                                    @Html.EditorFor(m => m.cid_fornecedor, new { htmlAttributes = new { @class = "input", id = "cidade", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">UF</label>
+                                    @Html.EditorFor(m => m.uf_fornecedor, new { htmlAttributes = new { @class = "input", id = "uf", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="btn-cadastrar">
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+            document.getElementById('ibge').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+                document.getElementById('ibge').value = (conteudo.ibge);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //fim if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //fim if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        }
+
+        $(document).ready(function () {
+            $("#telefone").inputmask("mask", { "mask": "(99) 9999-9999" });
+            $("#cnpj").inputmask("mask", { "mask": "99.999.999/9999-99" }, { reverse: true });
+            $("#cep").inputmask("mask", { "mask": "99999-999" });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cep.js")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/bundles/inputmask")
+</body>
+</html>

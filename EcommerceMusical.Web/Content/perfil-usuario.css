@@ -1,0 +1,195 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background: #fbfbfb;
+}
+
+.card-perfil {
+    width: 90%;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    padding: 2rem 1rem;
+    margin: 2rem auto;
+}
+
+    .card-perfil h1 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 42px;
+        color: #000000;
+        text-align: center;
+    }
+
+.dados-perfil {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.border {
+    margin: 0 3rem;
+    border: 1px solid #3f3c3c;
+}
+
+.title-perfil {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    margin-bottom: 1rem;
+    color: #000000;
+}
+
+.left-infos {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-items: center;
+    margin-left: 2rem;
+}
+
+    .left-infos .user .image-user-perfil {
+        min-width: 200px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-bottom: 1rem;
+    }
+
+        .left-infos .user .image-user-perfil img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .left-infos .user .name-user-perfil {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+        color: #000000;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .left-infos .realizar-comentario {
+        margin-top: 2rem;
+    }
+
+        .left-infos .realizar-comentario p,
+        .left-infos .historico-compras p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+            color: #000000;
+        }
+
+        .left-infos .realizar-comentario .btn-comentario input,
+        .left-infos .historico-compras .btn-historicoCompras input {
+            padding: 10px 20px;
+            width: 100%;
+            background: #c35c6e;
+            border-radius: 3px;
+            border: none;
+            cursor: pointer;
+            margin-top: 1rem;
+            color: #fff;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 21px;
+        }
+
+.right-infos .dados-login,
+.right-infos .dados-pessoais {
+    margin-bottom: 2rem;
+}
+
+.right-infos .btn-editar input {
+    padding: 10px 20px;
+    width: 100%;
+    background: #c35c6e;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    margin-top: 1rem;
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.left-infos .historico-compras .btn-historicoCompras input:hover {
+    background-color: #f6b100;
+}
+
+.left-infos .realizar-comentario .btn-comentario input:hover {
+    background-color: #f6b100;
+}
+
+.right-infos .btn-editar input:hover {
+    background-color: #f6b100;
+}
+
+@media screen and (max-width: 980px) {
+    .card-perfil {
+        width: 95%;
+    }
+
+    .border {
+        margin: 1.5rem;
+    }
+
+    .left-infos {
+        margin-left: 1rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    .dados-perfil {
+        flex-direction: column;
+        margin-top: 2rem;
+    }
+
+    .left-infos {
+        margin: 0;
+        width: 100%;
+    }
+
+        .left-infos .user {
+            display: block;
+        }
+
+        .left-infos .historico-compras,
+        .left-infos .realizar-comentario {
+            width: 100%;
+        }
+
+            .left-infos .historico-compras p,
+            .left-infos .realizar-comentario p {
+                display: none;
+            }
+
+            .left-infos .realizar-comentario .btn-comentario,
+            .left-infos .historico-compras .btn-historicoCompras {
+                width: 100%;
+            }
+
+    .right-infos .btn-editar {
+        margin: 0;
+    }
+
+        .right-infos .btn-editar input {
+            margin-left: 0;
+        }
+}

@@ -1,0 +1,597 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        max-width: 880px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        max-width: 680;
+        margin: 0 auto;
+    }
+}
+
+/*-----------------------PRODUTOS HOMEPAGE--------------------------*/
+
+.prodDestaques,
+.prodOfertas,
+.prodLançamentos,
+.prodPremiums {
+    margin-top: 5rem;
+    display: flex;
+}
+
+.produtosHome {
+    display: flex;
+}
+
+.produto,
+.produto-oferta {
+    width: 100%;
+    margin: 10px 27px;
+}
+
+    .produto:hover,
+    .produto-oferta:hover {
+        box-shadow: 4px 7px 10px rgba(0, 0, 0, 0.1);
+    }
+
+.active-prod {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+}
+
+.setas-prod {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+#arrow-prev-destaque,
+#arrow-prev-oferta,
+#arrow-prev-lancamento,
+#arrow-prev-premium {
+    margin-right: 0.5rem;
+}
+
+#arrow-prev-destaque,
+#arrow-next-destaque,
+#arrow-prev-oferta,
+#arrow-next-oferta,
+#arrow-prev-lancamento,
+#arrow-next-lancamento,
+#arrow-prev-premium,
+#arrow-next-premium {
+    cursor: pointer;
+    padding: 5px;
+    background: rgb(95, 93, 93);
+}
+
+.title-homepage {
+    font-family: "Roboto", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 30px;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+    .title-homepage::after {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 2px;
+        background: #000;
+    }
+
+.imgProd {
+    position: relative;
+    width: 100%;
+    max-height: 237px;
+    height: 237px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+    .imgProd a img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .imgProd:hover {
+        background: #e7e7e7;
+    }
+
+    .imgProd a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .imgProd .oferta {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 33px;
+        height: 47px;
+        background: #7fdd6f;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+    }
+
+        .imgProd .oferta p {
+            font-family: "Roboto", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+            color: #fff;
+        }
+
+.infosProd {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+    .infosProd .nomeProd {
+        padding: 0 10px;
+    }
+
+        .infosProd .nomeProd h3 {
+            font-family: "Roboto", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 16px;
+            color: #2c2828;
+        }
+
+    .infosProd .precoProd {
+        padding: 8px 0;
+    }
+
+        .infosProd .precoProd h3,
+        .infosProd .precoProd-oferta h3 {
+            font-family: "Roboto", sans-serif;
+            font-style: normal;
+            font-weight: 300;
+            font-size: 18px;
+            line-height: 21px;
+            text-align: center;
+            color: #433b3b;
+        }
+
+    .infosProd .precoProd-oferta p {
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+        text-align: center;
+        text-decoration-line: line-through;
+        color: #a7a7a7;
+    }
+
+    .infosProd .precoProd h3 span,
+    .infosProd .precoProd-oferta h3 span {
+        font-weight: bold;
+    }
+
+    .infosProd .carrinho .btnCarrinho a {
+        width: 100%;
+        margin: 0;
+    }
+
+        .infosProd .carrinho .btnCarrinho a button {
+            width: 100%;
+            background: #ffffff;
+            border: 1px solid #544e4e;
+            box-sizing: border-box;
+            border-radius: 1px;
+            padding: 10px;
+            font-family: "Roboto", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 14px;
+            text-align: center;
+            cursor: pointer;
+            color: #000000;
+        }
+
+            .infosProd .carrinho .btnCarrinho a button:hover {
+                color: #fff;
+                background: #544e4e;
+            }
+
+@media screen and (max-width: 600px) {
+    .prodDestaques {
+        margin-top: 2rem;
+    }
+}
+
+/*-------------------------------------GRIDS HOMEPAGE (CATEGORIAS: DESTAQUE, LANÇAMENTO, PREMIUM E OFERTA)---------------------------*/
+
+.grids-homepage {
+    margin-top: 7rem;
+}
+
+.categorias-homepage {
+    display: grid;
+    max-width: 1110px;
+    min-width: 600px;
+    width: 100%;
+    /* height: 580px; */
+    grid-gap: 31px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+        "lancamento destaques ofertas"
+        "lancamento destaques ofertas"
+        "lancamento premium ofertas"
+        "lancamento premium ofertas";
+    justify-content: center;
+}
+
+    .categorias-homepage .lancamentos {
+        width: 100%;
+        height: 100%;
+        grid-area: "lancamento";
+        grid-row: lancamento;
+        grid-column: lancamento;
+    }
+
+        .categorias-homepage .lancamentos img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+    .categorias-homepage .destaques {
+        height: 100%;
+        width: 100%;
+        grid-area: "destaques";
+        grid-row: destaques;
+        grid-column: destaques;
+    }
+
+        .categorias-homepage .destaques img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+    .categorias-homepage .premium {
+        height: 100%;
+        width: 100%;
+        grid-area: "premium";
+        grid-row: premium;
+        grid-column: premium;
+    }
+
+        .categorias-homepage .premium img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+    .categorias-homepage .ofertas {
+        height: 100%;
+        width: 100%;
+        grid-area: "ofertas";
+        grid-row: ofertas;
+        grid-column: ofertas;
+    }
+
+        .categorias-homepage .ofertas img {
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+@media screen and (max-width: 1180px) {
+    .container {
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container {
+        max-width: 680;
+        margin: 0 auto;
+    }
+
+    .grids-homepage {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .categorias-homepage {
+        display: none;
+    }
+}
+
+/*---------------------------------------------COMENTÁRIOS HOMEPAGE--------------------------------------------*/
+
+.Comments {
+    margin-top: 5rem;
+}
+
+.feedbacks {
+    /* position: relative; */
+    background: rgba(161, 0, 28, 0.8);
+    opacity: 0.8;
+    width: 100%;
+    height: 550px;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+    .feedbacks .titulo {
+        background-color: #f6b100;
+        height: 100%;
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .feedbacks .titulo h2 {
+            font-family: "Inter", sans-serif;
+            width: 55%;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 40px;
+            color: #000000 !important;
+        }
+
+    .feedbacks .comentarios {
+        background: #fff;
+        height: 90%;
+        width: 45%;
+    }
+
+.area-comentario {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.aspas {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+}
+
+.user {
+    margin-top: 5.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    width: 220px;
+    height: 60px;
+}
+
+    .user .image-user {
+        min-width: 60px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 0.8rem;
+    }
+
+        .user .image-user img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+.name-user {
+    text-align: left;
+}
+
+    .name-user p {
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+.conteudo {
+    padding: 2rem 1.6rem;
+}
+
+    .conteudo .comentario {
+        margin-bottom: 1rem;
+    }
+
+        .conteudo .comentario p {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 40px;
+            color: #000;
+        }
+
+    .conteudo .data-comentario {
+        margin-bottom: 2rem;
+    }
+
+        .conteudo .data-comentario p {
+            font-family: "Inter", sans-serif;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 40px;
+            color: #a8a6a6;
+        }
+
+.footer {
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+    display: flex;
+    justify-content: space-between;
+    width: 80px;
+}
+
+    .footer .leftArrow,
+    .footer .rightArrow {
+        cursor: pointer;
+    }
+
+@media screen and (max-width: 1352px) {
+    .conteudo .data-comentario {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 1130px) {
+    .feedbacks .comentarios {
+        background: #fff;
+        height: 90%;
+        width: 55%;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .aspas img {
+        width: 70%;
+    }
+
+    .user {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .conteudo .comentario p {
+        font-size: 15px;
+    }
+
+    .user .image-user {
+        min-width: 50px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .user {
+        width: 200px;
+        height: 60px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .feedbacks .comentarios {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .feedbacks {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+        .feedbacks .titulo {
+            display: none;
+        }
+
+        .feedbacks .comentarios {
+            width: 80%;
+        }
+}
+
+@media screen and (max-width: 460px) {
+    .aspas {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+
+    .feedbacks .comentarios {
+        width: 90%;
+    }
+
+    .conteudo {
+        padding: 1rem 0.5rem;
+    }
+}
+
+/*------------------------------------CAROUSEL HOMEPAGE------------------------------------------------*/
+
+.carousel-home {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+    .carousel-home .setas-navegacao {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        padding: 0 10%;
+    }
+
+.carousel img {
+    width: 100%;
+}
+
+.carousel-home .setas-navegacao #arrow-prev,
+.carousel-home .setas-navegacao #arrow-next {
+    cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+    .grids-homepage {
+        margin-top: 3rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .categorias-homepage {
+        display: none;
+    }
+}

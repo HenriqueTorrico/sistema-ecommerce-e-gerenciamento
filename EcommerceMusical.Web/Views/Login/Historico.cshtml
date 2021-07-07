@@ -1,0 +1,60 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelUsuario>
+@{
+    ViewBag.Title = "Historico";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/historico-compras.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="title-historico">
+            <br />
+            <h2>Seu Histórico de Compras <span>@ViewBag.nm_usuario</span></h2>
+        </div>
+        <div class="card_historico_compras">
+            <table class="table">
+                <thead class="header-historico">
+                    <tr>
+                        <th scope="col">Código</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.cd_venda)</td>
+                            <td>@Html.DisplayFor(modelItem => item.dt_venda)</td>
+                            <td>@Html.DisplayFor(modelItem => item.hr_venda)</td>
+                            <td>R$ @Html.DisplayFor(modelItem => item.vl_venda)</td>
+                            <td><a href="~/Login/Itens/@item.cd_venda" class="btn-itens-historico">Ver Itens</a></td>
+                        </tr>
+                    }
+                    </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

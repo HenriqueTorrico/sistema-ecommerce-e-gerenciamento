@@ -1,0 +1,217 @@
+﻿@model EcommerceMusical.Web.Models.modelUsuario
+@{
+    ViewBag.Title = "Editar Usuário";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/cadastro-usuario.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="form-cadastro">
+        <div class="header-cadastro">
+            <h1 class="text-header-cadastro">Atualizar o dados do Cliente</h1>
+        </div>
+
+        <div class="container">
+            <div class="card-forms-cadastro col-lg-8 col-md-12 col-sm-12">
+                <h2 class="title-cadastro">Dados do Usuário</h2>
+                <div class="form-cadastro">
+                    @using (Html.BeginForm("atualizarUsuario", "Usuario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="inputs">
+                            @Html.HiddenFor(m => m.cd_usuario)
+                            <div class="input-cadastro wi-100">
+                                <label for="">Nome Completo</label>
+                                @Html.EditorFor(m => m.nm_usuario, new { htmlAttributes = new { @class = "input", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="dois-input">
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Gênero</label>
+                                    @Html.DropDownList("genero", null, "Escolha o Genêro", new { @class = "form-select-cadastro", required = "required" })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Celular</label>
+                                    @Html.EditorFor(m => m.cel_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "celular", placeholder = "(__) _____-____" } })
+                                    <div class="linha"></div>
+                                </div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">CPF</label>
+                                @Html.EditorFor(m => m.cpf_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "cpf", placeholder = "___.___.___-__" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Endereço</label>
+                                @Html.EditorFor(m => m.log_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "rua" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="dois-input">
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Bairro</label>
+                                    @Html.EditorFor(m => m.bar_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "bairro" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">CEP</label>
+                                    @Html.EditorFor(m => m.cep_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "cep", onblur = "pesquisacep(this.value);", placeholder = "_____-___" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">UF</label>
+                                    @Html.EditorFor(m => m.uf_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "uf" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Cidade</label>
+                                    @Html.EditorFor(m => m.cid_usuario, new { htmlAttributes = new { @class = "input", required = "required", id = "cidade" } })
+                                    <div class="linha"></div>
+                                </div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Imagem de Usuário</label>
+                                <div class="file-upload-cadastro">
+                                    <input class="file-upload-input" type="file" name="File" id="File">
+                                    <button class="file-upload-button" type="button">Arquivo da Imagem</button>
+                                    <span class="file-upload-label">Nenhum arquivo selecionado</span>
+                                </div>
+                                <div class="linha"></div>
+                            </div>
+                        </div>
+
+                        <h2 class="title-cadastro mt-2">Dados do Login</h2>
+                        <div class="inputs">
+                            <div class="input-cadastro wi-100">
+                                <label for="">E-mail</label>
+                                @Html.EditorFor(m => m.eml_usuario, new { htmlAttributes = new { @class = "input", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Senha</label>
+                                @Html.EditorFor(m => m.sh_usuario, new { htmlAttributes = new { @class = "input", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                        </div>
+                        <div class="btn-cadastrar">
+                            <button type="submit">Salvar</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        Array.prototype.forEach.call(document.querySelectorAll('.file-upload-button'), function (button) {
+            const hiddenInput = button.parentElement.querySelector('.file-upload-input');
+            const label = button.parentElement.querySelector('.file-upload-label');
+            const defaultLabelText = 'Nenhum arquivo selecionado';
+
+            label.textContent = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener('click', function () {
+                hiddenInput.click();
+            });
+
+            hiddenInput.addEventListener('change', function () {
+                const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                    return file.name;
+                });
+
+                label.textContent = filenameList.join(', ') || defaultLabelText;
+                label.title = label.textContent;
+            });
+        });
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+            document.getElementById('ibge').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+                document.getElementById('ibge').value = (conteudo.ibge);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //fim if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //fim if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        }
+
+        $(document).ready(function () {
+            $("#celular").inputmask("mask", { "mask": "(99) 99999-9999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#cep").inputmask("mask", { "mask": "99999-999" });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cep.js")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/bundles/inputmask")
+</body>
+</html>

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelUsuario>
+@{
+    ViewBag.Title = "Lista de Usuários";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/consulta-cliente.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <div class="consult-cli">
+        <div class="bg-red">
+            <h1>Consulta de Clientes</h1>
+        </div>
+        <div class="container">
+            <div class="card-table">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cd_usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.nm_usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cpf_usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cel_usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.eml_usuario)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cid_usuario)</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.cd_usuario)</td>
+                                <td class="linha-nowap">@Html.DisplayFor(modelItem => item.nm_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cpf_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cel_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.eml_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cid_usuario)</td>
+                                @if (Session["tipoGerente"] != null)
+                                {
+                                    <td class="actions-buttons">
+                                        <div class="btn-excluir">
+                                            <a onclick="return confirm('Deseja realmente excluir esse Cliente?!');" href="~/Usuario/excluirUsuario/@item.cd_usuario"><i class='bx bx-trash'></i></a>
+                                        </div>
+                                        <div class="btn-updade">
+                                            <a href="~/Usuario/atualizarUsuario/@item.cd_usuario"><i class='bx bxs-edit'></i></a>
+                                        </div>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

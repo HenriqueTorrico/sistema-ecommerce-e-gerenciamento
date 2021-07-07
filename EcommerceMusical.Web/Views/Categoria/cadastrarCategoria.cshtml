@@ -1,0 +1,49 @@
+﻿@model EcommerceMusical.Web.Models.modelCategoria
+@{
+    ViewBag.Title = "Cadastro de Categoria";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/cadastro-categoria.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-cadastro">
+        <div class="header-cadastro">
+            <h1 class="text-header-cadastro">Cadastro de Categoria</h1>
+        </div>
+
+        <div class="container">
+            <div class="card-forms-cadastro col-lg-8 col-md-12 col-sm-12">
+                @using (Html.BeginForm("cadastrarCategoria", "Categoria", FormMethod.Post))
+                {
+                    <div action="" class="form-cadastro">
+                        <div class="inputs">
+                            <div class="input-cadastro wi-100">
+                                <label for="">Nome da Categoria</label>
+                                @Html.EditorFor(model => model.nm_categoria, new { htmlAttributes = new { @class = "input", placeholder = "Ex: Instrumentos de Corda", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="btn-cadastrar">
+                                <button type="submit">Cadastrar</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

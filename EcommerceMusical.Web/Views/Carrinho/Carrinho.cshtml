@@ -1,0 +1,113 @@
+﻿@model EcommerceMusical.Web.Models.modelVenda
+@{
+    ViewBag.Title = "Carrinho";
+    ViewBag.Imagem = Model.img_produto;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css" integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
+    <link href="~/Content/carrinho.css" rel="stylesheet" />
+    <link href="~/Content/jquery-number.css" rel="stylesheet" />
+</head>
+<style>
+    .table thead th {
+        border: none !important;
+    }
+
+    .table td {
+        vertical-align: middle !important;
+    }
+</style>
+<body>
+    <main>
+        <div class="container">
+            <div class="carrinho row">
+                <div class="itens-carrinho col-lg-9 col-md-12 col-sm-12">
+                    <div class="header-itens-cart">
+                        <div class="title-cart">
+                            <h2>Seu Carrinho</h2>
+                        </div>
+                    </div>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="title-cart">Produto</th>
+                                <th scope="col" class="title-cart">Valor Unitário</th>
+                                <th scope="col" class="title-cart">Quantidade</th>
+                                <th scope="col" class="title-cart">Valor Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ItensPedido)
+                            {
+                                <tr>
+                                    <td class="produto-cart">
+                                        <div class="image-prod-cart">
+                                            <img src="@item.img_produto" />
+                                        </div>
+                                        <h3>@item.nm_produto</h3>
+                                    </td>
+                                    <td class="vlUnitario-produto-cart">
+                                        <h3>R$ @item.vl_unitario</h3>
+                                    </td>
+                                    <td class="qt-prod-cart">
+                                        <input type="number" name="" id="" value="@item.qt_produto" min="1">
+                                    </td>
+                                    <td class="vlTotal-produto-cart">
+                                        <h3>R$ @item.vl_parcial</h3>
+                                    </td>
+                                    <td class="remover-produto-cart">
+                                        <a href="~/Carrinho/ExcluirItem/@item.cd_carrinho"><i class="fas fa-times"></i></a>
+                                    </td>                                
+                                </tr>
+                            }
+                            </tbody>
+                    </table>
+                </div>
+                <div class="resumo-carrinho col-lg-3 col-md-12 col-sm-12">
+                    <div class="card-resumo">
+                        <div class="title-resumo-cart">
+                            <h2>RESUMO</h2>
+                        </div>
+                        <div class="infos-resumo-cart">
+                            <div class="frete">
+                                <p>Frete:</p>
+                                <p>Grátis</p>
+                            </div>
+                            <div class="vlTotal-cart">
+                                <p>Valor Total:</p>
+                                <p>R$ @Model.vl_venda</p>
+                            </div>
+                        </div>
+                        <div class="botoes-resumo">
+                            <div class="btn-continuarCompra">
+                                <a href="~/Home/Index"><button>Continuar Comprando</button></a>
+                            </div>
+                            <div class="btn-finalizarCompra">
+                                <a href="~/Carrinho/SalvarCarrinho"><button>Finalizar Compra</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-number.js"></script>
+    <script>
+        $(function () {
+            $('input[type="number"]').niceNumber();
+        });
+    </script>
+</body>
+</html>

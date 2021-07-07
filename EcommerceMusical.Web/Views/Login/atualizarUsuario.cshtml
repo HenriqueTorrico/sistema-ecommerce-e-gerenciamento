@@ -1,0 +1,197 @@
+﻿@model EcommerceMusical.Web.Models.modelUsuario
+@{
+    ViewBag.Title = "Editar Usuário";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link href="~/Content/editar-perfil.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card-perfil">
+            <h1>Editar Perfil</h1>
+            @using (Html.BeginForm("atualizarUsuario", "Login", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="dados-perfil">
+                    <div class="right-infos">
+                        <div class="dados-pessoais">
+                            <h2 class="title-perfil">Informações Pessoais</h2>
+                            <div class="row">
+                                <div class="imagem-user col-lg-12">
+                                    <div class="image-user-perfil">
+                                        <img src="@ViewBag.img_usuario" alt="">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4 col-md-6 col-sm-12">
+                                    <label for="">Foto</label>
+                                    <input type="file" name="file" id="file" class="form-control" />
+                                </div>
+                                <div class="form-group col-lg-5 col-md-6 col-sm-12">
+                                    <label for="">Nome</label>
+                                    @Html.LabelFor(m => m.nm_usuario)
+                                    @Html.EditorFor(m => m.nm_usuario, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.nm_usuario } })
+                                </div>
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label for="">CPF</label>
+                                    @Html.EditorFor(m => m.cpf_usuario, new { htmlAttributes = new { @class = "form-control", id = "cpf", placeholder = "___.___.___-__", @Value = @ViewBag.cpf_usuario } })
+                                    @Html.ValidationMessageFor(m => m.cpf_usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-2 col-md-4 col-sm-12">
+                                    <label for="">Celular</label>
+                                    @Html.EditorFor(m => m.cel_usuario, new { htmlAttributes = new { @class = "form-control", id = "celular", placeholder = "(__) _____-____", @Value = @ViewBag.cel_usuario } })
+                                    @Html.ValidationMessageFor(m => m.cel_usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-3 col-md-4 col-sm-12">
+                                    <label for="">Gênero</label>
+                                    @Html.DropDownList("genero", null, "Escolha o Genêro", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(m => m.cd_genero, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-3 col-md-6 col-sm-12">
+                                    <label for="">Cidade</label>
+                                    @Html.EditorFor(m => m.cid_usuario, new { htmlAttributes = new { @class = "form-control", id = "cidade", name = "cidade", @Value = @ViewBag.cid_usuario } })
+                                    @Html.ValidationMessageFor(m => m.cid_usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-2 col-md-4 col-sm-12">
+                                    <label for="">CEP</label>
+                                    @Html.EditorFor(m => m.cep_usuario, new { htmlAttributes = new { @class = "form-control", id = "cep", name = "cep", placeholder = "_____-___", @Value = @ViewBag.cep_usuario } })
+                                    @Html.ValidationMessageFor(m => m.cep_usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-2 col-md-3 col-sm-12">
+                                    <label for="">UF</label>
+                                    @Html.EditorFor(m => m.uf_usuario, new { htmlAttributes = new { @class = "form-control", id = "uf", @Value = @ViewBag.uf_usuario } })
+                                    @Html.ValidationMessageFor(m => m.uf_usuario, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-lg-6 col-md-8 col-sm-12">
+                                    <label for="">Endereço</label>
+                                    @Html.EditorFor(m => m.log_usuario, new { htmlAttributes = new { @class = "form-control", id = "rua", @Value = @ViewBag.log_usuario } })
+                                    @Html.ValidationMessageFor(m => m.log_usuario, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-lg-6 col-md-9 col-sm-12">
+                                    <label for="">Bairro</label>
+                                    @Html.EditorFor(m => m.bar_usuario, new { htmlAttributes = new { @class = "form-control", id = "bairro", @Value = @ViewBag.bar_usuario } })
+                                    @Html.ValidationMessageFor(m => m.bar_usuario, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="dados-login">
+                                <h2 class="title-perfil">Dados do Login</h2>
+                                <div class="row">
+                                    <div class="form-group col-lg-7 col-md-12">
+                                        <label for="">Email</label>
+                                        @Html.EditorFor(m => m.eml_usuario, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.eml_usuario } })
+                                        @Html.ValidationMessageFor(m => m.eml_usuario, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group col-lg-7 col-md-12">
+                                        <label for="">Senha</label>
+                                        @Html.EditorFor(m => m.sh_usuario, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.sh_usuario } })
+                                        @Html.ValidationMessageFor(m => m.sh_usuario, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                                <div class="btn-editar col-lg-3 col-md- 6 col-sm-12">
+                                    <input type="submit" value="Salvar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="display: none;">
+                    @Html.EditorFor(m => m.cd_usuario, new { @class = "nao-pode", htmlAttributes = new { @Value = @ViewBag.cd_usuario } })
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value = ("");
+            document.getElementById('bairro').value = ("");
+            document.getElementById('cidade').value = ("");
+            document.getElementById('uf').value = ("");
+            document.getElementById('ibge').value = ("");
+        }
+
+        function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+                //Atualiza os campos com os valores.
+                document.getElementById('rua').value = (conteudo.logradouro);
+                document.getElementById('bairro').value = (conteudo.bairro);
+                document.getElementById('cidade').value = (conteudo.localidade);
+                document.getElementById('uf').value = (conteudo.uf);
+                document.getElementById('ibge').value = (conteudo.ibge);
+            } //end if.
+            else {
+                //CEP não Encontrado.
+                limpa_formulário_cep();
+                alert("CEP não encontrado.");
+            }
+        }
+
+        function pesquisacep(valor) {
+
+            //Nova variável "cep" somente com dígitos.
+            var cep = valor.replace(/\D/g, '');
+
+            //Verifica se campo cep possui valor informado.
+            if (cep != "") {
+
+                //Expressão regular para validar o CEP.
+                var validacep = /^[0-9]{8}$/;
+
+                //Valida o formato do CEP.
+                if (validacep.test(cep)) {
+
+                    //Preenche os campos com "..." enquanto consulta webservice.
+                    document.getElementById('rua').value = "...";
+                    document.getElementById('bairro').value = "...";
+                    document.getElementById('cidade').value = "...";
+                    document.getElementById('uf').value = "...";
+
+                    //Cria um elemento javascript.
+                    var script = document.createElement('script');
+
+                    //Sincroniza com o callback.
+                    script.src = 'https://viacep.com.br/ws/' + cep + '/json/?callback=meu_callback';
+
+                    //Insere script no documento e carrega o conteúdo.
+                    document.body.appendChild(script);
+
+                } //fim if.
+                else {
+                    //cep é inválido.
+                    limpa_formulário_cep();
+                    alert("Formato de CEP inválido.");
+                }
+            } //fim if.
+            else {
+                //cep sem valor, limpa formulário.
+                limpa_formulário_cep();
+            }
+        }
+
+        $(document).ready(function () {
+            $("#celular").inputmask("mask", { "mask": "(99) 99999-9999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#cep").inputmask("mask", { "mask": "99999-999" });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/cep.js")
+    @Scripts.Render("~/Scripts/jquery-3.4.1.js")
+    @Scripts.Render("~/bundles/inputmask")
+</body>
+</html>

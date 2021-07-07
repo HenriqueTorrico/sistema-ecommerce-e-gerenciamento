@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelProduto>
+@{
+    ViewBag.Title = "Resultado da Busca";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link href="~/Content/categorias.css" rel="stylesheet" />
+</head>
+<body>
+    <main>
+        <section class="Produtos-AudioTec">
+            <div class="container">
+                <div class="grid-produtos">
+                    <div class="produtos">
+                        @foreach (var item in Model)
+                        {
+                            <div class="produto-item">
+                                <div class="imgProd">
+                                    <a href="~/Produto/detalhesProduto/@item.cd_produto">
+                                        <img src="@item.img_produto" alt="">
+                                    </a>
+                                </div>
+                                <div class="infosProd">
+                                    <div class="nomeProd">
+                                        <h3>@item.nm_produto</h3>
+                                    </div>
+                                    <div class="precoProd">
+                                        <h3>Por <span>@item.vl_produto</span></h3>
+                                    </div>
+                                    <div class="carrinho">
+                                        <div class="btnCarrinho">
+                                            <a href="~/Produto/detalhesProduto/@item.cd_produto"><button type="submit">DETALHES</button></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="~/Scripts/categorias.js"></script>
+</body>
+</html>

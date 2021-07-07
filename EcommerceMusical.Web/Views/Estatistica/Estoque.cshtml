@@ -1,0 +1,57 @@
+﻿@model PagedList.IPagedList<EcommerceMusical.Web.Models.modelEstatistica>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Estoque";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/consulta-produto.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="consult-prod">
+        <div class="bg-red">
+            <h1>Consulta de Produtos no Estoque</h1>
+        </div>
+        <div class="container">
+            <div class="card-table">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Imagem</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th>@Html.DisplayFor(modelItem => item.cd_produto)</th>
+                                <td class="imgProd">
+                                    <div class="img-Prod">
+                                        <img src="@item.img_produto" alt="">
+                                    </div>
+                                </td>
+                                <td>@Html.DisplayFor(modelItem => item.nm_produto)</td>
+                                <td>@Html.DisplayFor(modelItem => item.qt_produto)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                Página @Model.PageNumber de @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("Estoque", new { pagina = page }))
+            </div>
+        </div>
+    </div>
+</body>
+</html>

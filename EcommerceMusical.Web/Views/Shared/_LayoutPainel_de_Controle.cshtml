@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <link href="~/Content/Menu_Lateral.css" rel="stylesheet" />
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="menu-lateral">
+        <a href="~/Home/Index" style="text-decoration: none;">
+            <div class="logo-details">
+                <img src="~/Imagens/logo-music.svg" alt="">
+                <span class="logo_name">High Key Music</span>
+            </div>
+        </a>
+        <ul class="nav-links">
+            <div class="itens-sidebar">
+            <li>
+                <a href="~/Home/Painel_de_Controle">
+                    <i class='bx bx-pie-chart-alt-2 sidebar-icon'></i>
+                    <span class="link_name">Estatísticas</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="~/Home/Painel_de_Controle">Estatísticas</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <div class="iocn-link">
+                    <a href="~/Usuario/listarUsuario">
+                        <i class='bx bx-user sidebar-icon'></i>
+                        <span class="link_name">Clientes</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="~/Usuario/listarUsuario">Clientes</a></li>
+                    <li><a href="~/Usuario/cadastrarUsuario">Cadastro</a></li>
+                    <li><a href="~/Usuario/listarUsuario">Consulta</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="~/Comentario/listarComentario">
+                        <i class='bx bx-message-rounded sidebar-icon'></i>
+                        <span class="link_name">Comentários</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="~/Comentario/listarComentario">Comentários</a></li>
+                    <li><a href="~/Comentario/listarComentario">Consulta</a></li>
+                </ul>
+            </li>
+            @if (Session["tipoGerente"] != null)
+            {
+                <li>
+                    <div class="iocn-link">
+                        <a href="~/Funcionario/listarFuncionario">
+                            <i class='bx bxs-user-rectangle sidebar-icon'></i>
+                            <span class="link_name">Funcionários</span>
+                        </a>
+                        <i class='bx bxs-chevron-down arrow'></i>
+                    </div>
+                    <ul class="sub-menu">
+                        <li><a class="link_name" href="~/Funcionario/listarFuncionario">Funcionários</a></li>
+                        <li><a href="~/Funcionario/cadastrarFuncionario">Cadastro</a></li>
+                        <li><a href="~/Funcionario/listarFuncionario">Consulta</a></li>
+                    </ul>
+                </li>
+            }
+            <li>
+                <div class="iocn-link">
+                    <a href="~/Categoria/listarCategoria">
+                        <i class='bx bx-category sidebar-icon'></i>
+                        <span class="link_name">Categorias</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="~/Categoria/listarCategoria">Categorias</a></li>
+                    @if (Session["tipoGerente"] != null)
+                    {
+                        <li><a href="~/Categoria/cadastrarCategoria">Cadastro</a></li>
+                    }
+                    <li><a href="~/Categoria/listarCategoria">Consulta</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="~/Fornecedor/listarFornecedor">
+                        <i class='bx bx-package sidebar-icon'></i>
+                        <span class="link_name">Fornecedores</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="~/Fornecedor/listarFornecedor">Fornecedores</a></li>
+                    @if (Session["tipoGerente"] != null)
+                    {
+                        <li><a href="~/Fornecedor/cadastrarFornecedor">Cadastro</a></li>
+                    }
+                    <li><a href="~/Fornecedor/listarFornecedor">Consulta</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="iocn-link">
+                    <a href="~/Produto/listarProduto">
+                        <i class='bx bx-purchase-tag-alt sidebar-icon'></i>
+                        <span class="link_name">Produtos</span>
+                    </a>
+                    <i class='bx bxs-chevron-down arrow'></i>
+                </div>
+                <ul class="sub-menu">
+                    <li><a class="link_name" href="~/Produto/listarProduto">Produtos</a></li>
+                    @if (Session["tipoGerente"] != null)
+                    {
+                        <li><a href="~/Produto/cadastrarProduto">Cadastro</a></li>
+                    }
+                    <li><a href="~/Produto/listarProduto">Consulta</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="~/Venda/listarVenda">
+                    <i class='bx bx-dollar-circle sidebar-icon'></i>
+                    <span class="link_name">Vendas</span>
+                </a>
+                <ul class="sub-menu blank">
+                    <li><a class="link_name" href="~/Venda/listarVenda">Vendas</a></li>
+                </ul>
+            </li>
+    </div>
+
+    <div class="logout">
+        <li>
+            <a href="~/Login/Logout">
+                <i class='bx bx-log-out-circle sidebar-icon'></i>
+                <span class="link_name">Sair</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Sair</a></li>
+            </ul>
+        </li>
+    </div>
+    </ul>
+
+    </div>
+
+    <section class="header-menu">
+        <div class="header-content">
+            <div class="btn-menu">
+                <i class='bx bx-menu'></i>
+            </div>           
+            <div class="image-user">              
+                <img src="~/Imagens/Imagem Perfil.jpg" alt="">                
+            </div>          
+        </div>
+    </section>
+
+    <main class="content">
+        @RenderBody()
+    </main>
+
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e) => {
+                let arrowParent = e.target.parentElement.parentElement;
+                arrowParent.classList.toggle("showMenu");
+            });
+        }
+
+        let sidebar = document.querySelector(".menu-lateral");
+        let sidebarBtn = document.querySelector(".bx-menu");
+        console.log(sidebarBtn);
+        sidebarBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("fechar");
+        });
+    </script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/inputmask")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,223 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.detalhe-produto .produto {
+    display: flex;
+    justify-content: center;
+    margin: 4rem 0;
+}
+
+.image-prod {
+    padding: 10px 20px;
+    margin-right: 2rem;
+    height: 450px;
+    max-width: 450px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f6f6f6;
+}
+
+    .image-prod img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+.infos-prod {
+    max-width: 650px;
+    width: 100%;
+}
+
+    .infos-prod .name-prod h2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 36px;
+        line-height: 28px;
+        color: #2c2828;
+    }
+
+    .infos-prod > div {
+        margin-bottom: 40px;
+    }
+
+    .infos-prod .price-prod h3 {
+        font-style: normal;
+        font-weight: 300;
+        font-size: 24px;
+        line-height: 21px;
+        color: #433b3b;
+    }
+
+        .infos-prod .price-prod h3 span {
+            font-weight: bold;
+        }
+
+    .infos-prod .description-prod {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 16px;
+        color: #544f4f;
+    }
+
+    .infos-prod .MCS-prod > div h5 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 15px;
+        color: #312f2f;
+    }
+
+        .infos-prod .MCS-prod > div h5 span {
+            font-weight: bold;
+        }
+
+    .infos-prod .btn-addCar button {
+        padding: 10px 20px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        background-color: #c35c6e;
+    }
+
+        .infos-prod .btn-addCar button a {
+            text-decoration: none;
+            color: white;
+            margin-right: 10px;
+        }
+
+        a:hover{
+            color: #fff !important;
+        }
+
+        .infos-prod .btn-addCar button .fas {
+            color: white;
+        }
+
+        .infos-prod .btn-addCar button:hover {
+            background-color: #f6b100;
+        }
+
+.nav-link {
+    font-family: "Roboto", sans-serif;
+    color: #8e8e8e !important;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+    .nav-link:hover {
+        color: #161414 !important;
+    }
+
+.nav-tabs .nav-link {
+    border: none !important;
+}
+
+    .nav-tabs .nav-link:hover {
+        border: none !important;
+    }
+
+.nav-tabs {
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link.active {
+        color: #161414 !important;
+        background-color: #ffffff !important;
+        border: none !important;
+    }
+
+.text-descricao,
+.text-infos {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+    .text-descricao p,
+    .text-infos p {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 16px;
+        margin-top: 1rem;
+        margin-bottom: 1rem !important;
+        color: #544f4f;
+    }
+
+.infos-produto {
+    padding: 2rem 0;
+    width: 100%;
+}
+
+.informacoes {
+    margin-top: 2rem;
+    padding: 0.5rem;
+    background: #f8f6f6;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 1200px) {
+    .infos-prod > div {
+        margin-bottom: 36px;
+    }
+}
+
+@media screen and (max-width: 993px) {
+    .detalhe-produto .produto {
+        flex-direction: column;
+    }
+
+    .produto .image-prod {
+        max-width: 100%;
+        margin: 1rem auto;
+    }
+
+    .infos-prod {
+        margin: 1rem auto;
+    }
+
+    .infos-produto {
+        padding: 0 !important;
+    }
+
+    .infos-prod .name-prod h2 {
+        font-size: 30px;
+    }
+
+    .infos-prod .price-prod h3 {
+        font-size: 20px;
+    }
+
+    .infos-prod .description-prod {
+        font-size: 14px;
+    }
+
+    .infos-prod .MCS-prod > div h5 {
+        font-size: 14px;
+    }
+
+    .detalhe-produto .produto {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .infos-prod .btn-addCar button {
+        width: 100%;
+    }
+
+    .nav-link {
+        font-size: 14px !important;
+    }
+}

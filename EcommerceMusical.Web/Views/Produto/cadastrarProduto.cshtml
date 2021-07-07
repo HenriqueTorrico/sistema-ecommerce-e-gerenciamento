@@ -1,0 +1,123 @@
+﻿@model EcommerceMusical.Web.Models.modelProduto
+@{
+    ViewBag.Title = "Cadastro de Produto";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/cadastro-produto.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="cadastroProduto">
+        <div class="bg-yellow">
+            <h1>Cadastro de Produto</h1>
+        </div>
+        @using (Html.BeginForm("cadastrarProduto", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="card-cadastroProd">
+                <div class="form-cadastro">
+                    <div class="inputs">
+                        <div class="input-cadastro wi-100">
+                            <label for="">Nome</label>
+                            @Html.EditorFor(m => m.nm_produto, new { htmlAttributes = new { @class = "input", required = "required" } })
+                            @Html.ValidationMessageFor(m => m.nm_produto, "", new { @class = "text-danger" })
+                            <div class="linha"></div>
+                        </div>
+                        <div class="dois-input">
+                            <div class="input-cadastro wi-50">
+                                <label for="">Marca</label>
+                                @Html.EditorFor(m => m.mar_produto, new { htmlAttributes = new { @class = "input", required = "required" } })
+                                @Html.ValidationMessageFor(m => m.mar_produto, "", new { @class = "text-danger" })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="input-cadastro wi-50">
+                                <label for="">Quantidade</label>
+                                @Html.EditorFor(m => m.qt_produto, new { htmlAttributes = new { @class = "input", placeholder = "Ex: 8", required = "required" } })
+                                @Html.ValidationMessageFor(m => m.qt_produto, "", new { @class = "text-danger" })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="input-cadastro wi-50">
+                                <label for="">Fornecedor</label>
+                                @Html.DropDownList("fornecedor", null, "Escolha o Fornecedor", new { @class = "form-select-cadastro" })
+                                @Html.ValidationMessageFor(m => m.cd_fornecedor, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="input-cadastro wi-50">
+                                <label for="">Categoria</label>
+                                @Html.DropDownList("categoria", null, "Escolha a Categoria", new { @class = "form-select-cadastro" })
+                                @Html.ValidationMessageFor(m => m.cd_categoria, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="textarea-cadastro wi-100">
+                            <label for="">Descrição</label>
+                            @Html.TextAreaFor(m => m.ds_produto, 10, 40, new { required = "required" })
+                            @Html.ValidationMessageFor(m => m.ds_produto, "", new { @class = "text-danger" })
+                            <div class="linha"></div>
+                        </div>
+                        <div class="textarea-cadastro wi-100">
+                            <label for="">Caracteristícas</label>
+                            @Html.TextAreaFor(m => m.car_produto, 10, 40, new  { required = "required" })
+                            @Html.ValidationMessageFor(m => m.car_produto, "", new { @class = "text-danger" })
+                            <div class="linha"></div>
+                        </div>
+                        <div class="input-cadastro wi-100">
+                            <label for="">Imagem do Produto</label>
+                            <div class="file-upload-cadastro">
+                                <input class="file-upload-input" type="file" name="file" id="file" multiple>
+                                <button class="file-upload-button" type="button">Arquivo da Imagem</button>
+                                <span class="file-upload-label">Nenhum arquivo selecionado</span>
+                            </div>
+                            <div class="linha"></div>
+                        </div>
+                        <div class="dois-input">
+                            <div class="input-cadastro wi-50">
+                                <label for="">Status</label>
+                                @Html.DropDownList("status", null, "Escolha o Status", new { @class = "form-select-cadastro", required = "required" })
+                                @Html.ValidationMessageFor(m => m.cd_status, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="input-cadastro wi-50">
+                                <label for="">Valor</label>
+                                @Html.LabelFor(m => m.vl_produto)
+                                @Html.EditorFor(m => m.vl_produto, new { htmlAttributes = new { @class = "input" } })
+                                <div class="linha"></div>
+                            </div>
+                        </div>
+                        <div class="btn-cadastrar">
+                            <button type="submit">Cadastrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+
+        <script>
+            Array.prototype.forEach.call(document.querySelectorAll('.file-upload-button'), function (button) {
+                const hiddenInput = button.parentElement.querySelector('.file-upload-input');
+                const label = button.parentElement.querySelector('.file-upload-label');
+                const defaultLabelText = 'Nenhum arquivo selecionado';
+
+                label.textContent = defaultLabelText;
+                label.title = defaultLabelText;
+
+                button.addEventListener('click', function () {
+                    hiddenInput.click();
+                });
+
+                hiddenInput.addEventListener('change', function () {
+                    const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                        return file.name;
+                    });
+
+                    label.textContent = filenameList.join(', ') || defaultLabelText;
+                    label.title = label.textContent;
+                });
+            });
+        </script>
+</body>
+</html>

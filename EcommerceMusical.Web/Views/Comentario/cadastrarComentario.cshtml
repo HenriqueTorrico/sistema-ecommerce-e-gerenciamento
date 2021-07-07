@@ -1,0 +1,59 @@
+﻿@model EcommerceMusical.Web.Models.modelProduto
+@{
+    ViewBag.Title = "Cadastro de Comentário";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/cadastro-comentario.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="form-cadastro">
+        <div class="header-cadastro">
+            <div class="container">
+                <div class="header-actions-cadastro">
+                    <a href="~/Login/Detalhes"><img src="~/Imagens/setaVoltar.svg" alt=""></a>
+                </div>
+                <h1 class="text-header-cadastro">Conte-nos sua experiência em nossa loja!</h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="card-forms-cadastro col-lg-8 col-md-12 col-sm-12">
+                @using (Html.BeginForm("cadastrarComentario", "Comentario", FormMethod.Post))
+                {
+                    <div action="" class="form-cadastro">
+                        <div class="inputs">
+                            <div class="textarea-cadastro wi-100">
+                                <label for="">Comentário</label>
+                                @Html.TextAreaFor(model => model.ds_comentario, 10, 40, new { required = "required" } )
+                                <div class="linha"></div>
+                            </div>
+                            <div class="btn-cadastrar">
+                                <button type="submit">Enviar</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="display: none;">
+                        @Html.LabelFor(model => model.cd_usuario)
+                        @Html.EditorFor(model => model.cd_usuario, new { htmlAttributes = new { @class = "form-control", @Value = @ViewBag.cd_usuario } })
+                        @Html.ValidationMessageFor(model => model.cd_usuario, "", new { @class = "text-danger" })
+                    </div>
+                }
+            </div>
+        </div>      
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,172 @@
+﻿* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.title-itens-historico {
+    margin-top: 2rem;
+}
+
+    .title-itens-historico h2 {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 28px;
+        color: #535353 !important;
+    }
+
+        .title-itens-historico h2 span {
+            color: #000000 !important;
+        }
+
+    .title-itens-historico::after {
+        content: "";
+        display: block;
+        width: 100px;
+        height: 2px;
+        background: #000;
+        margin-top: 0.5rem;
+    }
+
+.card_itens-historico {
+    margin-top: 2rem;
+    background: #ffffff;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    overflow: hidden !important;
+}
+
+.header-itens-historico {
+    background: #f6b100;
+}
+
+.table thead th {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #fff !important;
+    border: none !important;
+}
+
+.table td {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #2c2828;
+    vertical-align: middle !important;
+}
+
+.table thead th,
+.table td {
+    padding: 20px 20px !important;
+    border: none !important;
+}
+
+.produto-item-historico {
+    display: flex !important;
+    align-items: center;
+}
+
+    .produto-item-historico h3 {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
+        max-width: 350px;
+        color: #2c2828;
+        margin: 0;
+    }
+
+    .produto-item-historico .image-item-historico {
+        padding: 5px;
+        height: 90px;
+        max-width: 80px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f6f6f6;
+        margin-right: 25px;
+    }
+
+        .produto-item-historico .image-item-historico img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+@media screen and (max-width: 995px) {
+    .table thead th,
+    .table td {
+        padding: 15px 15px !important;
+    }
+
+    .produto-item-historico .image-item-historico {
+        height: 80px;
+        max-width: 70px;
+        margin-right: 10px;
+    }
+
+    .produto-item-historico h3 {
+        font-size: 16px;
+        max-width: 250px;
+    }
+
+    .table td {
+        font-size: 16px;
+    }
+
+    .table thead th {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 765px) {
+    .table td {
+        font-size: 14px;
+    }
+
+    .table thead th {
+        font-size: 14px;
+    }
+
+    .table thead th,
+    .table td {
+        padding: 15px 15px !important;
+    }
+
+    .title-itens-historico h2 {
+        font-size: 18px;
+    }
+
+    .title-itens-historico::after {
+        content: "";
+        display: block;
+        width: 70px;
+        height: 2px;
+        background: #000;
+        margin-top: 0.5rem;
+    }
+
+    .produto-item-historico h3 {
+        font-size: 14px;
+        max-width: 150px;
+    }
+
+    .produto-item-historico .image-item-historico {
+        height: 70px;
+        max-width: 60px;
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 495px) {
+    .produto-item-historico h3 {
+        display: none;
+    }
+}

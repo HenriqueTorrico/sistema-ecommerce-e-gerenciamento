@@ -1,0 +1,52 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelVenda>
+@{
+    ViewBag.Title = "Lista de Vendas";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/consulta-vendas.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="consult-cli">
+        <div class="bg-red">
+            <h1>Consulta de Vendas</h1>
+        </div>
+        <div class="container">
+            <div class="card-table">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Código</th>
+                            <th scope="col">Nome do Cliente</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Data</th>
+                            <th scope="col">Hora</th>
+                            <th scope="col">Valor Total</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@Html.DisplayFor(modelItem => item.cd_venda)</th>
+                                <td>@Html.DisplayFor(modelItem => item.nm_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cpf_usuario)</td>
+                                <td>@Html.DisplayFor(modelItem => item.dt_venda)</td>
+                                <td>@Html.DisplayFor(modelItem => item.hr_venda)</td>
+                                <td>R$ @Html.DisplayFor(modelItem => item.vl_venda)</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

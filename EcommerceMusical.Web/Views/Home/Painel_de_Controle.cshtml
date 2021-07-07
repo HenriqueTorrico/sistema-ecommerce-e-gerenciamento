@@ -1,0 +1,91 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelEstatistica>
+@{
+    ViewBag.Title = "Painel de Controle";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/index-adm.css" rel="stylesheet" />
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="homePage-adm">
+        <div class="bg-yellow">
+            <h1>Estatísticas High Key Music </h1>
+        </div>
+        <div class="cards-infos">
+            @foreach (var itemUsuariosTotal in ViewBag.usuariosTotais)
+            {
+                <div class="card card-clientes">
+                    <div class="card-info">
+                        <h2>@itemUsuariosTotal.cd_usuario</h2>
+                        <h4>Clientes</h4>
+                    </div>
+                    <div class="card-icone">
+                        <i class='bx bx-user'></i>
+                    </div>
+                </div>
+            }
+
+            @foreach (var itemFuncionarioTotal in ViewBag.funcionariosTotais)
+            {
+                <div class="card card-funcionarios">
+                    <div class="card-info">
+                        <h2>@itemFuncionarioTotal.cd_funcionario</h2>
+                        <h4>Funcionários</h4>
+                    </div>
+                    <div class="card-icone">
+                        <i class='bx bxs-user-rectangle'></i>
+                    </div>
+                </div>
+            }
+
+            @foreach (var itemEstoque in ViewBag.estoque)
+            {
+                <div class="card card-estoque">
+                    <div class="card-info">
+                        <a href="~/Estatistica/Estoque" style="text-decoration: none">
+                            <h2>@itemEstoque.qt_produto</h2>
+                        </a>
+                        <h4>Estoque</h4>
+                    </div>
+                    <div class="card-icone">
+                        <i class='bx bx-package'></i>
+                    </div>
+                </div>
+            }
+
+            @foreach (var itemValorTotalVendas in ViewBag.valorTotalVenda)
+            {
+                <div class="card card-totalVendas">
+                    <div class="card-info">
+                        <h2>@itemValorTotalVendas.vl_venda</h2>
+                        <h4>Total de Vendas</h4>
+                    </div>
+                    <div class="card-icone">
+                        <i class='bx bx-money'></i>
+                    </div>
+                </div>
+            }
+
+            <div class="card card-compras">
+                @foreach (var itemVendaTotal in ViewBag.vendasTotais)
+                {
+                    <div class="card-info">
+                        <h2>@itemVendaTotal.cd_venda</h2>
+                        <h4>Compras Realizadas</h4>
+                    </div>
+                    <div class="card-icone">
+                        <i class='bx bxs-cart'></i>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

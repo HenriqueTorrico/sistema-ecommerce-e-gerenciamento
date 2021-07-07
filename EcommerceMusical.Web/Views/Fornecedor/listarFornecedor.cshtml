@@ -1,0 +1,63 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelFornecedor>
+@{
+    ViewBag.Title = "Lista de Fornecedores";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/consulta-fornecedor.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="consult-forne">
+        <div class="bg-red">
+            <h1>Consulta de Fornecedor</h1>
+        </div>
+        <div class="container">
+            <div class="card-table">
+                <table class="table" style="width: 100%;">
+                    <thead>
+                        <tr>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cd_fornecedor)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.nm_fornecedor)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.tel_fornecedor)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cnpj_fornecedor)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cep_fornecedor)</th>
+                            <th scope="col">@Html.DisplayNameFor(model => model.cid_fornecedor)</th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@Html.DisplayFor(modelItem => item.cd_fornecedor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.nm_fornecedor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.tel_fornecedor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cnpj_fornecedor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cep_fornecedor)</td>
+                                <td>@Html.DisplayFor(modelItem => item.cid_fornecedor)</td>
+                                @if (Session["tipoGerente"] != null)
+                                {
+                                    <td class="actions-buttons">
+                                        <div class="btn-excluir">
+                                            <a onclick="return confirm('Deseja realmente excluir esse Fornecedor?!');" href="~/Fornecedor/excluirFornecedor/@item.cd_fornecedor"><i class='bx bx-trash'></i></a>
+                                        </div>
+                                        <div class="btn-updade">
+                                            <a href="~/Fornecedor/atualizarFornecedor/@item.cd_fornecedor"><i class='bx bxs-edit'></i></a>
+                                        </div>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

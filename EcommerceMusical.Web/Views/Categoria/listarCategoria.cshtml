@@ -1,0 +1,43 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelCategoria>
+@{
+    ViewBag.Title = "Lista de Categorias";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/consulta-categoria.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="consult-categoria">
+        <div class="bg-red">
+            <h1>Consulta de Categorias</h1>
+        </div>
+        <div class="container">
+            <div class="cards-categorias">
+                @foreach (var item in Model)
+                {
+                    <div class="card-categoria">
+                        <h2>@Html.DisplayFor(modelItem => item.nm_categoria)</h2>
+                        @if (Session["tipoGerente"] != null)
+                        {
+                            <div class="actions-buttons">
+                                <div class="btn-excluir">
+                                    <a onclick="return confirm('Deseja realmente excluir essa Categoria?!');" href="~/Categoria/excluirCategoria/@item.cd_categoria"><i class='bx bx-trash'></i></a>
+                                </div>
+                                <div class="btn-updade">
+                                    <a href="~/Categoria/atualizarCategoria/@item.cd_categoria"><i class='bx bxs-edit'></i></a>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+﻿@model EcommerceMusical.Web.Models.modelFuncionario
+@{
+    ViewBag.Title = "Editar Funcionário";
+    Layout = "~/Views/Shared/_LayoutPainel_de_Controle.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="~/Content/cadastro-funcionario.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="form-cadastro">
+        <div class="header-cadastro">
+            <h1 class="text-header-cadastro">Atualizar os dados do Funcionário</h1>
+        </div>
+        <div class="container">
+            <div class="card-forms-cadastro col-lg-8 col-md-12 col-sm-12">
+                <h2 class="title-cadastro">Seus Dados</h2>
+                @using (Html.BeginForm("atualizarFuncionario", "Funcionario", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()                    
+                    <div class="form-cadastro">
+                        <div class="inputs">
+                            @Html.HiddenFor(m => m.cd_funcionario)
+                            <div class="input-cadastro wi-100">
+                                <label for="">Nome Completo</label>
+                                @Html.EditorFor(m => m.nm_funcionario, new { htmlAttributes = new { @class = "input", placeholder = "Ex: Leonardo", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="dois-input">
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Idade</label>
+                                    @Html.EditorFor(m => m.ida_funcionario, new { htmlAttributes = new { @class = "input", placeholder = "Ex: 17", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">CPF</label>
+                                    @Html.EditorFor(m => m.cpf_funcionario, new { htmlAttributes = new { @class = "input", id = "cpf", placeholder = "___.___.___-__", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Gênero</label>
+                                    @Html.DropDownList("genero", null, "Escolha o Genêro", new { @class = "form-select-cadastro", required = "required" })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">Celular</label>
+                                    @Html.EditorFor(m => m.cel_funcionario, new { htmlAttributes = new { @class = "input", id = "celular", placeholder = "(__) _____-____", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">CEP</label>
+                                    @Html.EditorFor(m => m.cep_funcionario, new { htmlAttributes = new { @class = "input", id = "cep", placeholder = "_____-___", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                                <div class="input-cadastro wi-50">
+                                    <label for="">tipo</label>
+                                    @Html.EditorFor(m => m.tp_funcionario, new { htmlAttributes = new { @class = "input", placeholder = "Ex: Funcionario", required = "required" } })
+                                    <div class="linha"></div>
+                                </div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Imagem do Funcionário</label>
+                                <div class="file-upload-cadastro">
+                                    <input class="file-upload-input" type="file" name="file" id="file">
+                                    <button class="file-upload-button" type="button">Arquivo da Imagem</button>
+                                    <span class="file-upload-label">Nenhum arquivo selecionado</span>
+                                </div>
+                                <div class="linha"></div>
+                            </div>
+                        </div>
+
+                        <h2 class="title-cadastro mt-2">Ária de Login</h2>
+                        <div class="inputs">
+                            <div class="input-cadastro wi-100">
+                                <label for="">E-mail</label>
+                                @Html.EditorFor(m => m.eml_funcionario, new { htmlAttributes = new { @class = "input", placeholder = "Ex: henrique@gmail.com", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                            <div class="input-cadastro wi-100">
+                                <label for="">Senha</label>
+                                @Html.EditorFor(m => m.sh_funcionario, new { htmlAttributes = new { @class = "input", type = "password", required = "required" } })
+                                <div class="linha"></div>
+                            </div>
+                        </div>
+                        <div class="btn-cadastrar">
+                            <button type="submit">Salvar</button>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        Array.prototype.forEach.call(document.querySelectorAll('.file-upload-button'), function (button) {
+            const hiddenInput = button.parentElement.querySelector('.file-upload-input');
+            const label = button.parentElement.querySelector('.file-upload-label');
+            const defaultLabelText = 'Nenhum arquivo selecionado';
+
+            label.textContent = defaultLabelText;
+            label.title = defaultLabelText;
+
+            button.addEventListener('click', function () {
+                hiddenInput.click();
+            });
+
+            hiddenInput.addEventListener('change', function () {
+                const filenameList = Array.prototype.map.call(hiddenInput.files, function (file) {
+                    return file.name;
+                });
+
+                label.textContent = filenameList.join(', ') || defaultLabelText;
+                label.title = label.textContent;
+            });
+        });
+
+        $(document).ready(function () {
+            $("#celular").inputmask("mask", { "mask": "(99) 99999-9999" });
+            $("#cpf").inputmask("mask", { "mask": "999.999.999-99" }, { reverse: true });
+            $("#cep").inputmask("mask", { "mask": "99999-999" });
+        });
+    </script>
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/inputmask")
+</body>
+</html>

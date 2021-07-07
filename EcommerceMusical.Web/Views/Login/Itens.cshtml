@@ -1,0 +1,62 @@
+﻿@model IEnumerable<EcommerceMusical.Web.Models.modelUsuario>
+@{
+    ViewBag.Title = "Itens";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/itens-historico.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;0,800;1,300&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="title-itens-historico">
+            <br />
+            <h2>Itens da Compra Realizada</h2>
+        </div>
+        <div class="card_itens-historico">
+
+            <table class="table">
+                <thead class="header-itens-historico">
+                    <tr>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Valor Unitário</th>
+                        <th scope="col">Quantidade</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="produto-item-historico">
+                                <div class="image-item-historico">
+                                    <img src="@item.img_produto" alt="">
+                                </div>
+                                <h3>@Html.DisplayFor(modelItem => item.nm_produto)</h3>
+                            </td>
+                            <td>R$ @Html.DisplayFor(modelItem => item.vl_produto)</td>
+                            <td>@Html.DisplayFor(modelItem => item.qt_produto)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

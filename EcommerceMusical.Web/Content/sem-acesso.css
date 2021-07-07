@@ -1,0 +1,29 @@
+﻿* {
+    margin: 0;
+    padding: 0%;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+.sem-permissao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.icone i {
+    height: 150px;
+    font-size: 150px;
+    color: #E31616;
+}
+
+.sem-permissao h1 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    color: #413E3E;
+}
